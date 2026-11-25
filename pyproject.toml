@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mcp-injection-bench"
-version = "0.1.0"
+version = "0.1.1"
 description = "Deterministic prompt-injection benchmark for tool-using AI agents"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
-authors = [{name = "fromLight"}]
+authors = [{name = "dotcael"}]
 keywords = ["ai-security", "prompt-injection", "benchmark", "llm", "agents"]
 classifiers = [
   "Programming Language :: Python :: 3",
