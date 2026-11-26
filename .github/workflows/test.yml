@@ -2,6 +2,7 @@ name: test
 
 # Active in this repository. The same file nested in a subdirectory of another
 # repo was never read by GitHub, which is why the bench had no checks.
+# Pinned to 24.04 because setup-python has no build of 3.9 for Ubuntu 26.04.
 
 on:
   push:
@@ -9,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         python-version: ["3.9", "3.11", "3.13"]
