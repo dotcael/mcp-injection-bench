@@ -1,0 +1,27 @@
+name: test
+
+# Active in this repository. The same file nested in a subdirectory of another
+# repo was never read by GitHub, which is why the bench had no checks.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: unit tests
+        run: python -m unittest discover -s tests -v
+      - name: reference agents
+        run: |
+          python -m injection_bench run --agent safe
+          python -m injection_bench run --agent donothing || true
+          python -m injection_bench run --agent naive || true
